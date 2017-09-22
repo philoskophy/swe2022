@@ -34,7 +34,7 @@ public class Constructor {
     public String getName(){
         int a = this.plus(3,5);
         int b = plus(6,7);
-        int c = Constructor.plus(5,1);    // 위의 abc 세개가 모두 작동하지만 c 가 정석석
+        int c = Constructor.plus(5,1);    // 위의 abc 세개가 모두 작동하지만 c 가 정석
        return firstName + seperator + lastName;
     }
     public String getName(String a){
