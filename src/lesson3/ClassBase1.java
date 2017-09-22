@@ -14,5 +14,11 @@ public class ClassBase1 {
 
         NoConst no= new NoConst();
         System.out.println(no.getFirstName(c2));
+
+        System.out.println(Constructor.plus(3, 6));
+        // 기본은 클래스이름.정적메소드
+        System.out.println(c2.plus(3,5));
+        // 안좋은 예. 작동은 함
+
     }
 }
