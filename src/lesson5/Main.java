@@ -10,6 +10,7 @@ public class Main {
 
         Employee me = new Employee(100), you = new Employee(200);
         System.out.println(me.compareTo(you));
+        System.out.println((Competition.compare(you, me)));
     }
 
 
