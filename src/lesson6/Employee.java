@@ -2,10 +2,12 @@ package lesson6;
 
 public class Employee{
 
-    final int salary;
+    int salary;
 
-    public Employee(int salary){
-        this.salary = salary;
+    public Employee(int salary)
+    {
     }
+    public Employee(double salary, String name){
 
+    }
 }

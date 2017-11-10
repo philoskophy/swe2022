@@ -6,6 +6,6 @@ public class Currency {
     public static final Currency DOL = new Currency();
 
     public int changeMoney(Currency currency, int quantity) {
-        return quantity ;
+        return quantity;
     }
 }

@@ -28,10 +28,13 @@ public class Customer {
         }
     }
     public boolean deposit(Banker b, Currency c, int q){
+
         return b.requestDeposit(
                 new Deposit(
                         this,
-                         new Money(c, q),
-                         new Account()));
+                        new Money(c, q),
+                        new Account()//계좌번호, 은행, 예금주
+                )
+        );
     }
 }

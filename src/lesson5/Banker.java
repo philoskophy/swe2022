@@ -1,7 +1,8 @@
 package lesson5;
 
 public class Banker {
-    public boolean requestDeposit(DepositRequest req){          //request(입금요청) 수락여부 확인
+
+    public boolean requestDeposit(DepositRequest req){
         Account account = req.getDepositAccount();
         if(!account.isDepositable()) return false;
         Money money = req.getMoney();
@@ -10,6 +11,6 @@ public class Banker {
     }
     public static final Money MINIMUM = new Money(Currency.WON, 100);
     private static boolean isMinimumLimit(Money money) {
-        return money.getMoney(Currency.WON) < MINIMUM.getMoney(Currency.WON) ;
+        return money.getMoney(Currency.WON) < MINIMUM.getMoney(Currency.WON);
     }
 }
