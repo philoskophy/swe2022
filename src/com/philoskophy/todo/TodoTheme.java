@@ -1,15 +1,37 @@
 package com.philoskophy.todo;
 
 public class TodoTheme {
+    public enum todoColor {BLACK, WHITE, GRAY}
+    public enum todoImage {PIKACHU, APPLE, GALAXY}
 
-    String theme_Color = "Blue";
-    String theme_font =  "굴림체";
+    private todoColor themeColor;
+    private todoImage themeImage;
 
-    public void changeThemeColor(String a){
-        this.theme_Color = a ;
+    //BasicTheme
+    public TodoTheme(){
+        themeColor = todoColor.BLACK;
+        themeImage = todoImage.PIKACHU;
     }
 
-    public void changeThemeFont(String a){
-        this.theme_font = a ;
+    //반환
+    public todoColor getThemeColor() {
+        return themeColor;
     }
+
+    public todoImage getThemeImage() {
+        return themeImage;
+    }
+
+
+    //메서드
+    public void changeColor(todoColor color){
+        this.themeColor = color;
+    }
+
+    public void changeImage(todoImage image){
+        this.themeImage = image;
+
+    }
+
+
 }
