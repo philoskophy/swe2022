@@ -1,3 +1,4 @@
+/*
 package lesson9;
 
 public class EnumTest {
@@ -20,3 +21,4 @@ public class EnumTest {
         }
     }
 }
+*/

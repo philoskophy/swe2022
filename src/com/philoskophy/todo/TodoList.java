@@ -32,7 +32,6 @@ public class TodoList {
     }
 
 
-
     //메서드
     public void changeName(String name) {
         this.listName = name;
@@ -47,11 +46,16 @@ public class TodoList {
         this.todoTasks.add(task);
 
     }
-    public void delTask(TodoTask task){
+
+    public void delTask(TodoTask task) {
         this.todoTasks.remove(task);
     }
 
 
+    @Override
+    public String toString() {
 
+        return "[ 할일 목록 = " + listName + " ]";
 
+    }
 }
