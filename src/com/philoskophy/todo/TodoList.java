@@ -41,11 +41,7 @@ public class TodoList {
         this.listTheme = theme;
     }
 
-
-    public void addTask(TodoTask task) {
-        this.todoTasks.add(task);
-
-    }
+    public void addTask(TodoTask task) { this.todoTasks.add(task); }
 
     public void delTask(TodoTask task) {
         this.todoTasks.remove(task);
@@ -55,7 +51,9 @@ public class TodoList {
     @Override
     public String toString() {
 
-        return "[ 할일 목록 = " + listName + " ]";
+        return listName ;
 
     }
+
+
 }
