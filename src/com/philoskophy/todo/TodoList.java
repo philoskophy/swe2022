@@ -47,11 +47,16 @@ public class TodoList {
         this.todoTasks.remove(task);
     }
 
-//
+    public void showTasks() {
+        for (int i = 0; i < this.todoTasks.size(); i++) {
+            System.out.println(this.todoTasks.get(i).toString());
+        }
+    }
+    // 100% 이해 안되는 부분, toString 공부 더 해야함.
     @Override
     public String toString() {
 
-        return listName ;
+        return "[" + listName + "]" ;
 
     }
 

@@ -52,5 +52,12 @@ public class TodoTask {
         this.taskName = name;
     }
 
+    @Override
+    public String toString() {
+
+        return "---" + taskName  ;
+
+    }
+
 
 }

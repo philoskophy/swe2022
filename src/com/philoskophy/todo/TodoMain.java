@@ -7,16 +7,17 @@ public class TodoMain {
         App skproject = new App("skproject");
         TodoList l1 = new TodoList("과제");
         skproject.addTodoList(l1);
-        TodoTask t1 = new TodoTask("자바입문 Lesson9");
-        l1.addTask(t1);
+        TodoList l2 = new TodoList("자격증공부");
+        skproject.addTodoList(l2);
+        TodoTask t1a = new TodoTask("자바입문 Lesson9");
+        l1.addTask(t1a);
+        TodoTask t1b = new TodoTask("인공지능 문제풀이");
+        l1.addTask(t1b);
+        TodoTask t2a = new TodoTask("TOEIC");
+        l2.addTask(t2a);
 
-
-        String app0 = skproject.getTodoList().toString();
-        System.out.println(app0);
-
-
-
-
+        skproject.showCategory();
+        l1.showTasks();
 
     }
 }

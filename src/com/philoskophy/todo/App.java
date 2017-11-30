@@ -26,5 +26,9 @@ public class App {
         return this.todoCategory;
     }
 
-
+    public void showCategory() {
+        for (int i = 0; i < this.todoCategory.size(); i++) {
+            System.out.println(this.todoCategory.get(i).toString());
+        }
+    }
 }
