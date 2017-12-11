@@ -1,22 +1,96 @@
 
 package com.philoskophy.todo;
 
+import java.io.*;
+import java.util.*;
+
 public class TodoMain {
-    public static void main(String[] args) {
+    public static void main(String[] arg) {
 
         App skproject = new App("skproject");
-        TodoList l1 = new TodoList("과제");
-        skproject.addTodoList(l1);
-        TodoList l2 = new TodoList("자격증공부");
-        skproject.addTodoList(l2);
-        TodoTask t1a = new TodoTask("자바입문 Lesson9");
-        l1.addTask(t1a);
-        TodoTask t1b = new TodoTask("인공지능 문제풀이");
-        l1.addTask(t1b);
-        TodoTask t2a = new TodoTask("TOEIC");
-        l2.addTask(t2a);
 
-        int a = skproject.todoCategory.get(0).size(); //2가 나와야하는데 왜 0이 나오는지 모르겠음.
-        skproject.showCategory();
+
+        Scanner in = new Scanner(System.in).useDelimiter("\\n");
+
+        skproject.viewTodoList();
+
+        while (true) {
+            in.reset();
+            TodoList workOnList = null;
+
+            while (in.hasNextLine()) {
+                String c = in.nextLine();
+                if (c.startsWith("addList:")){
+                    String newListName = c.substring(8).trim();
+                    skproject.addTodoList(new TodoList(newListName));
+                    skproject.viewTodoList();
+                }
+
+                if (c.startsWith("list:")){
+                    String workOnListName = c.substring(5).trim();
+                    workOnList = skproject.findAppTodoList(workOnListName);
+                    try {workOnList.viewTodoTasks();}
+                    catch(NullPointerException ex){
+                        System.out.println("존재하지 않는 리스트");
+                        throw new NullPointerException(); }
+                    finally {
+                        continue;
+                    }
+                }
+                if (c.startsWith("addTodo:")){
+                    String strTodoTask = c.substring(8).trim();
+                    TodoTask todoTaskForAdding = TodoTask.stringsOfTodoTask(strTodoTask);
+                    workOnList.addtoTodoTasks(todoTaskForAdding);
+                    workOnList.viewTodoTasks();
+                }
+
+                if (c.startsWith("complete:")){
+                    try{
+                        String completeTaskName = c.substring(9).trim();
+                        TodoTask completedTask = workOnList.findTodoTask(completeTaskName);
+                        completedTask.setDone(true);}
+                    catch (NullPointerException ex){System.out.println("존재하지 않는 task");
+                        throw new NullPointerException();}finally {
+                        workOnList.viewTodoTasks();
+                        continue;
+                    }
+                }
+                if (c.startsWith("incomplete:")){
+                    try{
+                        String incompleteTaskName = c.substring(11).trim();
+                        TodoTask completedTask = workOnList.findTodoTask(incompleteTaskName);
+                        completedTask.setDone(false);}
+                    catch (NullPointerException ex){System.out.println("존재하지 않는 task");
+                        throw new NullPointerException();}finally {
+                        workOnList.viewTodoTasks();
+                        continue;
+                    }
+                }
+
+
+
+                if (c.startsWith("save")){
+                    try{ skproject.save();} catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {continue;}}
+
+
+                if (c.startsWith("load")){
+                    try{ skproject.load(); }
+                    catch (Exception e) {
+                        System.out.println("오류발생지점Demoload");
+                        e.printStackTrace(); }
+                    finally {
+                        skproject.viewTodoList();
+                        continue; }
+                }
+
+
+
+
+            }
+
+
+        }
     }
 }

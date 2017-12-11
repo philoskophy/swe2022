@@ -1,37 +1,50 @@
 package com.philoskophy.todo;
 
-public class TodoTheme {
-    public enum todoColor {BLACK, WHITE, GRAY}
-    public enum todoImage {PIKACHU, APPLE, GALAXY}
+import java.io.Serializable;
 
-    private todoColor themeColor;
-    private todoImage themeImage;
+public class TodoTheme implements Serializable {
+    public enum TodoThemeColor {BLUE, RED, PURPLE, GREEN, SKYBLUE}
+    public enum TodoThemeImage {MOUNTAIN, SEOULTOWER, BUS, AIRPLANE, HOUSE, NTH}
 
-    //BasicTheme
+    private TodoThemeImage themeImage;
+    private TodoThemeColor themeColor;
+
+
+
     public TodoTheme(){
-        themeColor = todoColor.BLACK;
-        themeImage = todoImage.PIKACHU;
+        themeImage = TodoThemeImage.MOUNTAIN;
+        themeColor = TodoThemeColor.BLUE;
     }
 
-    //반환
-    public todoColor getThemeColor() {
+    public TodoTheme(TodoThemeColor themeColor, TodoThemeImage themeImage){
+        this.themeColor = themeColor;
+        this.themeImage = themeImage;
+    }
+
+
+    public void settingThemeColor(TodoThemeColor a){
+        this.themeColor = a;
+    }
+
+    public void settingThemeImage(TodoThemeImage b){
+        this.themeImage = b;
+
+    }
+
+
+
+    @Override
+    public String toString() {
+        String TodoThemeInfo = themeColor.toString() + ", " + themeImage.toString();
+        return TodoThemeInfo;
+    }
+
+
+    public TodoThemeColor getThemeColor() {
         return themeColor;
     }
 
-    public todoImage getThemeImage() {
+    public TodoThemeImage getThemeImage() {
         return themeImage;
     }
-
-
-    //메서드
-    public void changeColor(todoColor color){
-        this.themeColor = color;
-    }
-
-    public void changeImage(todoImage image){
-        this.themeImage = image;
-
-    }
-
-
 }
