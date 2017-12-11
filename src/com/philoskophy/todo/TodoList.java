@@ -2,11 +2,11 @@ package com.philoskophy.todo;
 
 import java.util.ArrayList;
 
-public class TodoList {
+public class TodoList extends ArrayList<TodoList> {
     //변수
     private String listName;
     private TodoTheme listTheme;
-    private ArrayList<TodoTask> todoTasks;
+    public ArrayList<TodoTask> todoTasks;
 
 
     //생성자

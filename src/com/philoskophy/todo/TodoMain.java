@@ -16,8 +16,7 @@ public class TodoMain {
         TodoTask t2a = new TodoTask("TOEIC");
         l2.addTask(t2a);
 
+        int a = skproject.todoCategory.get(0).size(); //2가 나와야하는데 왜 0이 나오는지 모르겠음.
         skproject.showCategory();
-        l1.showTasks();
-
     }
 }
